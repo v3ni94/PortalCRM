@@ -691,5 +691,21 @@
     "iosHint": "In Safari via Share and Add to Home Screen. No data is stored on the device.",
     "install": "Install",
     "dismiss": "Later"
+  },
+  "ListFilter": {
+    "searchLabel": "Search",
+    "searchPlaceholder": "Enter search term",
+    "statusFilterLabel": "Filter by status",
+    "statusAll": "All",
+    "noResults": "No results for the current selection."
+  },
+  "DocumentDetail": {
+    "show": "Show details",
+    "hide": "Hide details",
+    "loading": "Loading details …",
+    "loadedTitle": "Details",
+    "category": "Category",
+    "filename": "File name",
+    "created": "Provided on"
   }
 }

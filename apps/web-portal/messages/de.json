@@ -691,5 +691,21 @@
     "iosHint": "In Safari über Teilen und Zum Home-Bildschirm hinzufügen. Es werden keine Daten auf dem Gerät gespeichert.",
     "install": "Installieren",
     "dismiss": "Später"
+  },
+  "ListFilter": {
+    "searchLabel": "Suche",
+    "searchPlaceholder": "Suchbegriff eingeben",
+    "statusFilterLabel": "Nach Status filtern",
+    "statusAll": "Alle",
+    "noResults": "Keine Treffer für die aktuelle Auswahl."
+  },
+  "DocumentDetail": {
+    "show": "Details anzeigen",
+    "hide": "Details ausblenden",
+    "loading": "Details werden geladen …",
+    "loadedTitle": "Details",
+    "category": "Kategorie",
+    "filename": "Dateiname",
+    "created": "Bereitgestellt am"
   }
 }
