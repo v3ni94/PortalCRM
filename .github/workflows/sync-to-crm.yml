@@ -1,0 +1,67 @@
+name: Sync portal to CRM
+
+# Deploys apps/web-portal into the main repository
+# v3ni94/CRM-HV-Verwaltungssoftware as a pull request.
+# Requires the repository secret CRM_SYNC_TOKEN: a fine grained PAT
+# with contents:write and pull-requests:write on the CRM repository.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sync-to-crm
+  cancel-in-progress: false
+
+env:
+  CRM_REPO: v3ni94/CRM-HV-Verwaltungssoftware
+
+jobs:
+  sync:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout PortalCRM
+        uses: actions/checkout@v4
+        with:
+          path: portal
+          persist-credentials: false
+
+      - name: Checkout CRM
+        uses: actions/checkout@v4
+        with:
+          repository: v3ni94/CRM-HV-Verwaltungssoftware
+          token: ${{ secrets.CRM_SYNC_TOKEN }}
+          path: crm
+
+      - name: Copy apps/web-portal into CRM
+        run: |
+          rsync -a --delete portal/apps/web-portal/ crm/apps/web-portal/
+
+      - name: Create sync branch and pull request
+        working-directory: crm
+        env:
+          GH_TOKEN: ${{ secrets.CRM_SYNC_TOKEN }}
+        run: |
+          if git diff --quiet; then
+            echo "No portal changes to sync."
+            exit 0
+          fi
+          BASE=$(gh repo view "$CRM_REPO" --json defaultBranchRef -q .defaultBranchRef.name)
+          BRANCH="portal-sync/${GITHUB_SHA::12}"
+          git config user.name "portal-sync-bot"
+          git config user.email "info@muellerhv.de"
+          git checkout -b "$BRANCH"
+          git add apps/web-portal
+          git commit -m "chore(web-portal): sync from PortalCRM @ ${GITHUB_SHA::12}"
+          git push -u origin "$BRANCH"
+          gh pr create \
+            --repo "$CRM_REPO" \
+            --base "$BASE" \
+            --head "$BRANCH" \
+            --title "chore(web-portal): Sync aus PortalCRM (${GITHUB_SHA::12})" \
+            --body "Automatischer Sync von apps/web-portal aus v3ni94/PortalCRM, Commit ${GITHUB_SHA}. Quelle der Aenderungen ist das PortalCRM-Repository. Bitte CRM-CI abwarten und regulaer mergen."
