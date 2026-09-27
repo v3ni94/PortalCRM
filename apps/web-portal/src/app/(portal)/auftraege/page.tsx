@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
 export default async function OrdersPage() {
   const t = await getTranslations("Orders");
   const { data, error, response } = await serverApi().GET("/api/v1/portal/work-orders");
-  redirectIfUnauthenticated(response);
+  await redirectIfUnauthenticated(response);
   if (!data) throw new Error(String(error));
   const rows = data as unknown as WorkOrder[];
   return (

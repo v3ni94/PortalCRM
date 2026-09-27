@@ -109,6 +109,7 @@
     "commentField": "Nachricht",
     "commentSubmit": "Senden",
     "commentSent": "Nachricht wurde gesendet.",
+    "noComments": "Noch keine Nachrichten.",
     "number": "Nummer",
     "titleRequired": "Bitte einen Titel eingeben.",
     "descriptionRequired": "Bitte eine Beschreibung eingeben.",
@@ -146,6 +147,7 @@
     "date": "Ablesedatum",
     "submit": "Melden",
     "submitted": "Der Zählerstand wurde als Vorschlag übermittelt.",
+    "meterIdRequired": "Bitte die Zähler-ID eingeben.",
     "valueRequired": "Bitte einen Zählerstand eingeben.",
     "dateRequired": "Bitte ein Ablesedatum eingeben."
   },
@@ -168,7 +170,8 @@
       "iban": "IBAN"
     },
     "submit": "Änderung vorschlagen",
-    "submitted": "Die Änderung wurde als Vorschlag übermittelt."
+    "submitted": "Die Änderung wurde als Vorschlag übermittelt.",
+    "required": "Bitte mindestens eine Änderung angeben."
   },
   "Orders": {
     "title": "Aufträge",
@@ -456,6 +459,7 @@
       "preview": "PDF-Vorschau (Entwurf)",
       "stored": "PDF anzeigen"
     },
+    "tabsLabel": "Protokollbereiche",
     "tabs": {
       "object": "Objekt",
       "participants": "Beteiligte",

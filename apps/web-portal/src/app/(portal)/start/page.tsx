@@ -12,7 +12,7 @@ export const dynamic = "force-dynamic";
 export default async function StartPage() {
   const t = await getTranslations("Portal");
   const { data, error, response } = await serverApi().GET("/api/v1/portal/me");
-  redirectIfUnauthenticated(response);
+  await redirectIfUnauthenticated(response);
   if (!data) throw new Error(String(error));
   const me = data as unknown as Me;
   // Hint on new notices of the Schwarzes Brett (A54); any failure hides the hint only.

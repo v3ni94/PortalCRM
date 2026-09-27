@@ -13,7 +13,7 @@ export const dynamic = "force-dynamic";
 export default async function TicketsPage() {
   const t = await getTranslations("Tickets");
   const { data, error, response } = await serverApi().GET("/api/v1/portal/tickets");
-  redirectIfUnauthenticated(response);
+  await redirectIfUnauthenticated(response);
   if (!data) throw new Error(String(error));
   const rows = data as unknown as Ticket[];
   return (

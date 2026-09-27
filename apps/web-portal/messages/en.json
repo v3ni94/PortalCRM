@@ -109,6 +109,7 @@
     "commentField": "Message",
     "commentSubmit": "Send",
     "commentSent": "Message was sent.",
+    "noComments": "No messages yet.",
     "number": "Number",
     "titleRequired": "Please enter a title.",
     "descriptionRequired": "Please enter a description.",
@@ -146,6 +147,7 @@
     "date": "Reading date",
     "submit": "Report",
     "submitted": "The meter reading was submitted as a proposal.",
+    "meterIdRequired": "Please enter the meter ID.",
     "valueRequired": "Please enter a meter reading.",
     "dateRequired": "Please enter a reading date."
   },
@@ -168,7 +170,8 @@
       "iban": "IBAN"
     },
     "submit": "Propose change",
-    "submitted": "The change was submitted as a proposal."
+    "submitted": "The change was submitted as a proposal.",
+    "required": "Please enter at least one change."
   },
   "Orders": {
     "title": "Orders",
@@ -456,6 +459,7 @@
       "preview": "PDF preview (draft)",
       "stored": "Show PDF"
     },
+    "tabsLabel": "Protocol sections",
     "tabs": {
       "object": "Property",
       "participants": "Participants",

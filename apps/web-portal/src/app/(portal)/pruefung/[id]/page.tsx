@@ -24,12 +24,12 @@ export default async function AuditDetailPage({
   const [t, { id }, query] = await Promise.all([getTranslations("Audit"), params, searchParams]);
   const base = `/api/v1/portal/board/engagements/${encodeURIComponent(id)}`;
   const response = await serverFetch(`${base}${filterQuery(query)}`);
-  redirectIfUnauthenticated(response);
+  await redirectIfUnauthenticated(response);
   if (response.status === 404) notFound();
   if (response.status === 422) {
     // Invalid filter (e.g. reversed date range): show the unfiltered engagement with a hint.
     const plain = await serverFetch(base);
-    redirectIfUnauthenticated(plain);
+    await redirectIfUnauthenticated(plain);
     if (plain.status === 404) notFound();
     if (!plain.ok) throw new Error(`Prüfauftrag nicht ladbar (${plain.status})`);
     const detail = (await plain.json()) as Detail;

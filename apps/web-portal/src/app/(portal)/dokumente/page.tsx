@@ -21,7 +21,7 @@ export const dynamic = "force-dynamic";
 export default async function DocumentsPage() {
   const [t, format] = await Promise.all([getTranslations("Documents"), getFormatter()]);
   const { data, error, response } = await serverApi().GET("/api/v1/portal/documents");
-  redirectIfUnauthenticated(response);
+  await redirectIfUnauthenticated(response);
   if (!data) throw new Error(String(error));
   const rows = data as unknown as PortalDocument[];
   // Staff with the portal permission "handover:read" (M2-08) additionally see the handover

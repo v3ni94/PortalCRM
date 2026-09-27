@@ -124,7 +124,7 @@ describe("TicketComments states", () => {
     const user = userEvent.setup();
     vi.mocked(fetch).mockResolvedValue(jsonResponse({ title: "Fehler", status: 422, detail: "Text zu lang." }, 422));
     renderIntl(<TicketComments ticketId="t1" comments={[]} />);
-    expect(screen.getByText("Keine Meldungen vorhanden.")).toBeInTheDocument();
+    expect(screen.getByText("Noch keine Nachrichten.")).toBeInTheDocument();
     await user.type(screen.getByLabelText("Nachricht"), "Hallo");
     await user.click(screen.getByRole("button", { name: "Senden" }));
     expect(await screen.findByRole("alert")).toHaveTextContent("Text zu lang.");

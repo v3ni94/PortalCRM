@@ -8,8 +8,8 @@ import type { Me } from "@/components/portal/types";
 import { serverApi } from "@/lib/api-server";
 
 /** Signed-in area of the portal: slim header with role aware navigation, content, footer note.
- *  A failed /me (e.g. session boundary) falls back to the tenant/owner navigation; the pages
- *  themselves enforce access via the API. */
+ *  A failed /me (e.g. session boundary) renders a minimal role free navigation (start only,
+ *  sign out stays in the header); the pages themselves enforce access via the API. */
 async function currentMe(): Promise<Me | null> {
   try {
     const { data } = await serverApi().GET("/api/v1/portal/me");
@@ -30,28 +30,34 @@ export default async function PortalLayout({ children }: { children: React.React
   // A52: a pure board account (no contract of its own) sees only the audit room.
   const board = Boolean(me?.roles.includes("board"));
   const boardOnly = board && !me?.roles.some((role) => role !== "board");
-  const links: { href: string; label: string }[] = provider
-    ? [{ href: "/auftraege", label: t("nav.orders") }]
-    : boardOnly
-      ? [{ href: "/pruefung", label: t("nav.audit") }]
-      : [
-        { href: "/dokumente", label: t("nav.documents") },
-        { href: "/aushaenge", label: t("nav.notices") },
-        { href: "/meldungen", label: t("nav.tickets") },
-        { href: "/formulare", label: t("nav.forms") },
-        { href: "/konto", label: t("nav.account") },
-        { href: "/zaehlerstand", label: t("nav.meter") },
-        { href: "/daten", label: t("nav.data") },
-        // A51: owner pages (read only), shown only with the owner role.
-        ...(me?.roles.includes("owner")
-          ? [
-              { href: "/beschluesse", label: t("nav.resolutions") },
-              { href: "/ansprechpartner", label: t("nav.contacts") },
-              { href: "/hausgeldkonto", label: t("nav.hoaAccount") },
-            ]
-          : []),
-        ...(board ? [{ href: "/pruefung", label: t("nav.audit") }] : []),
-      ];
+  const links: { href: string; label: string }[] = !me
+    ? // /me failed: minimal role free navigation (no tenant links for e.g. providers).
+      [{ href: "/start", label: t("nav.start") }]
+    : provider
+      ? [{ href: "/auftraege", label: t("nav.orders") }]
+      : boardOnly
+        ? [{ href: "/pruefung", label: t("nav.audit") }]
+        : [
+          { href: "/dokumente", label: t("nav.documents") },
+          { href: "/aushaenge", label: t("nav.notices") },
+          { href: "/meldungen", label: t("nav.tickets") },
+          { href: "/formulare", label: t("nav.forms") },
+          { href: "/konto", label: t("nav.account") },
+          { href: "/zaehlerstand", label: t("nav.meter") },
+          { href: "/daten", label: t("nav.data") },
+          // M30: handover protocols, same visibility as the tile in StartTiles; users with the
+          // portal permission handover:read see all protocols on the page itself.
+          { href: "/uebergabe", label: t("handover") },
+          // A51: owner pages (read only), shown only with the owner role.
+          ...(me.roles.includes("owner")
+            ? [
+                { href: "/beschluesse", label: t("nav.resolutions") },
+                { href: "/ansprechpartner", label: t("nav.contacts") },
+                { href: "/hausgeldkonto", label: t("nav.hoaAccount") },
+              ]
+            : []),
+          ...(board ? [{ href: "/pruefung", label: t("nav.audit") }] : []),
+        ];
   return (
     <div className="flex min-h-screen flex-col">
       <header className="border-b border-border bg-surface">
