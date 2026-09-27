@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { bff } from "@/lib/bff";
 import { fieldPath } from "@/lib/problem";
@@ -37,6 +37,13 @@ export function DataChangeForm() {
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState(false);
+  const doneRef = useRef<HTMLParagraphElement>(null);
+
+  // Keyboard/Screenreader: after a successful submit the focus moves to the confirmation
+  // (same pattern as the heading focus in PortalForms).
+  useEffect(() => {
+    if (done) doneRef.current?.focus();
+  }, [done]);
 
   function setField(name: string, v: string) {
     setValues((prev) => ({ ...prev, [name]: v }));
@@ -81,7 +88,11 @@ export function DataChangeForm() {
           {error}
         </p>
       ) : null}
-      {done ? <p className={ui.success}>{t("submitted")}</p> : null}
+      {done ? (
+        <p ref={doneRef} tabIndex={-1} role="status" className={`${ui.success} focus:outline-none`}>
+          {t("submitted")}
+        </p>
+      ) : null}
       <div>
         <label htmlFor="change-kind" className={ui.label}>
           {t("kind")}

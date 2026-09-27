@@ -72,6 +72,8 @@ describe("DataChangeForm", () => {
     await user.type(screen.getByLabelText("Telefonnummer"), " 0211 123456 ");
     await user.click(screen.getByRole("button", { name: "Änderung vorschlagen" }));
     await waitFor(() => expect(screen.getByText("Die Änderung wurde als Vorschlag übermittelt.")).toBeInTheDocument());
+    // The confirmation receives the focus (keyboard/screen reader users).
+    expect(screen.getByText("Die Änderung wurde als Vorschlag übermittelt.")).toHaveFocus();
     expect(fetch).toHaveBeenCalledWith(
       "/api/bff/portal/change-requests",
       expect.objectContaining({
