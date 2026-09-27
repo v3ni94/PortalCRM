@@ -30,6 +30,8 @@ describe("NewTicket", () => {
     await user.type(screen.getByLabelText("Beschreibung"), "Rohrbruch im Bad");
     await user.click(screen.getByRole("button", { name: "Melden" }));
     await waitFor(() => expect(screen.getByText("Meldung wurde übermittelt.")).toBeInTheDocument());
+    // The confirmation receives the focus (keyboard/screen reader users).
+    expect(screen.getByText("Meldung wurde übermittelt.")).toHaveFocus();
     expect(fetch).toHaveBeenCalledWith(
       "/api/bff/portal/tickets",
       expect.objectContaining({

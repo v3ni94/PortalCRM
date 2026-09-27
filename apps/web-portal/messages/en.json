@@ -78,6 +78,7 @@
       "forms": "Fill in forms of the management"
     },
     "proposalNotice": "Proposal, will be reviewed by the management.",
+    "skipToContent": "Skip to content",
     "errorTitle": "The page could not be loaded.",
     "errorHint": "Please try again. If the error persists, contact your property management.",
     "retry": "Try again",
@@ -104,6 +105,7 @@
     "photo": "Attach photos (optional, JPEG or PNG)",
     "submit": "Report",
     "submitted": "The report was submitted.",
+    "submitting": "Sending",
     "back": "Back to overview",
     "history": "History",
     "commentField": "Message",
@@ -233,7 +235,10 @@
     "appointmentRequired": "Please select an appointment.",
     "reportRequired": "Please enter the completion report.",
     "invoiceFieldsRequired": "Please enter invoice number, invoice date and invoice amount.",
-    "orderTitle": "Work order"
+    "orderTitle": "Work order",
+    "submitting": "Sending",
+    "declineConfirmAction": "Confirm decline",
+    "declineCancel": "Cancel"
   },
   "Handover": {
     "title": "Handover protocols",
@@ -450,7 +455,8 @@
       "empty": "Please sign first.",
       "none": "No signature recorded yet.",
       "noName": "Without name",
-      "confirmDelete": "Really delete the signature?"
+      "confirmDelete": "Really delete the signature?",
+      "pointerHint": "Please sign in the field with your finger, a pen or the mouse. The signature is only possible via pointer input, keyboard input is not supported."
     },
     "hints": {
       "title": "Notes (no obstacle to completion):"
@@ -661,7 +667,8 @@
       "cancel": "Cancel",
       "statementSaved": "The statement has been saved."
     },
-    "costTableCaption": "Cost items of the audit engagement"
+    "costTableCaption": "Cost items of the audit engagement",
+    "loadFailed": "The audit engagement could not be loaded (status {status})."
   },
   "Forms": {
     "title": "Forms",

@@ -60,6 +60,13 @@ export default async function PortalLayout({ children }: { children: React.React
         ];
   return (
     <div className="flex min-h-screen flex-col">
+      {/* Skip link: first focusable element, visually hidden until focused (keyboard users). */}
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-surface focus:px-3 focus:py-2 focus:text-sm focus:text-fg focus:outline-none focus:ring-2 focus:ring-gold/60"
+      >
+        {t("skipToContent")}
+      </a>
       <header className="border-b border-border bg-surface">
         <div className="mx-auto flex w-full max-w-4xl flex-col gap-2 px-4 py-3">
           <div className="flex items-center justify-between gap-3">
@@ -80,7 +87,7 @@ export default async function PortalLayout({ children }: { children: React.React
           />
         </div>
       </header>
-      <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col gap-5 px-4 py-6">
+      <main id="main" className="mx-auto flex w-full max-w-4xl flex-1 flex-col gap-5 px-4 py-6">
         <InstallHint />
         {children}
       </main>
