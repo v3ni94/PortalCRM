@@ -711,5 +711,15 @@
     "category": "Category",
     "filename": "File name",
     "created": "Provided on"
+  },
+  "Dashboard": {
+    "heading": "Current key figures",
+    "openTickets": "Open reports",
+    "openProposals": "Open appointment proposals",
+    "openBalance": "Outstanding balance",
+    "documents": "Documents",
+    "ordersOpen": "Open orders",
+    "ordersInProgress": "Orders in progress",
+    "boardEngagements": "Audit engagements"
   }
 }

@@ -711,5 +711,15 @@
     "category": "Kategorie",
     "filename": "Dateiname",
     "created": "Bereitgestellt am"
+  },
+  "Dashboard": {
+    "heading": "Aktuelle Kennzahlen",
+    "openTickets": "Offene Meldungen",
+    "openProposals": "Offene Terminvorschläge",
+    "openBalance": "Offene Posten",
+    "documents": "Dokumente",
+    "ordersOpen": "Offene Aufträge",
+    "ordersInProgress": "Aufträge in Ausführung",
+    "boardEngagements": "Prüfaufträge"
   }
 }
