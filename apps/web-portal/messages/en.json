@@ -78,6 +78,7 @@
       "forms": "Fill in forms of the management"
     },
     "proposalNotice": "Proposal, will be reviewed by the management.",
+    "skipToContent": "Skip to content",
     "errorTitle": "The page could not be loaded.",
     "errorHint": "Please try again. If the error persists, contact your property management.",
     "retry": "Try again",
@@ -104,11 +105,13 @@
     "photo": "Attach photos (optional, JPEG or PNG)",
     "submit": "Report",
     "submitted": "The report was submitted.",
+    "submitting": "Sending",
     "back": "Back to overview",
     "history": "History",
     "commentField": "Message",
     "commentSubmit": "Send",
     "commentSent": "Message was sent.",
+    "noComments": "No messages yet.",
     "number": "Number",
     "titleRequired": "Please enter a title.",
     "descriptionRequired": "Please enter a description.",
@@ -146,6 +149,7 @@
     "date": "Reading date",
     "submit": "Report",
     "submitted": "The meter reading was submitted as a proposal.",
+    "meterIdRequired": "Please enter the meter ID.",
     "valueRequired": "Please enter a meter reading.",
     "dateRequired": "Please enter a reading date."
   },
@@ -168,7 +172,8 @@
       "iban": "IBAN"
     },
     "submit": "Propose change",
-    "submitted": "The change was submitted as a proposal."
+    "submitted": "The change was submitted as a proposal.",
+    "required": "Please enter at least one change."
   },
   "Orders": {
     "title": "Orders",
@@ -230,7 +235,10 @@
     "appointmentRequired": "Please select an appointment.",
     "reportRequired": "Please enter the completion report.",
     "invoiceFieldsRequired": "Please enter invoice number, invoice date and invoice amount.",
-    "orderTitle": "Work order"
+    "orderTitle": "Work order",
+    "submitting": "Sending",
+    "declineConfirmAction": "Confirm decline",
+    "declineCancel": "Cancel"
   },
   "Handover": {
     "title": "Handover protocols",
@@ -447,7 +455,8 @@
       "empty": "Please sign first.",
       "none": "No signature recorded yet.",
       "noName": "Without name",
-      "confirmDelete": "Really delete the signature?"
+      "confirmDelete": "Really delete the signature?",
+      "pointerHint": "Please sign in the field with your finger, a pen or the mouse. The signature is only possible via pointer input, keyboard input is not supported."
     },
     "hints": {
       "title": "Notes (no obstacle to completion):"
@@ -456,6 +465,7 @@
       "preview": "PDF preview (draft)",
       "stored": "Show PDF"
     },
+    "tabsLabel": "Protocol sections",
     "tabs": {
       "object": "Property",
       "participants": "Participants",
@@ -657,7 +667,8 @@
       "cancel": "Cancel",
       "statementSaved": "The statement has been saved."
     },
-    "costTableCaption": "Cost items of the audit engagement"
+    "costTableCaption": "Cost items of the audit engagement",
+    "loadFailed": "The audit engagement could not be loaded (status {status})."
   },
   "Forms": {
     "title": "Forms",
@@ -691,5 +702,31 @@
     "iosHint": "In Safari via Share and Add to Home Screen. No data is stored on the device.",
     "install": "Install",
     "dismiss": "Later"
+  },
+  "ListFilter": {
+    "searchLabel": "Search",
+    "searchPlaceholder": "Enter search term",
+    "statusFilterLabel": "Filter by status",
+    "statusAll": "All",
+    "noResults": "No results for the current selection."
+  },
+  "DocumentDetail": {
+    "show": "Show details",
+    "hide": "Hide details",
+    "loading": "Loading details …",
+    "loadedTitle": "Details",
+    "category": "Category",
+    "filename": "File name",
+    "created": "Provided on"
+  },
+  "Dashboard": {
+    "heading": "Current key figures",
+    "openTickets": "Open reports",
+    "openProposals": "Open appointment proposals",
+    "openBalance": "Outstanding balance",
+    "documents": "Documents",
+    "ordersOpen": "Open orders",
+    "ordersInProgress": "Orders in progress",
+    "boardEngagements": "Audit engagements"
   }
 }

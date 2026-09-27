@@ -78,6 +78,7 @@
       "forms": "Formulare der Verwaltung ausfüllen"
     },
     "proposalNotice": "Vorschlag, wird von der Verwaltung geprüft.",
+    "skipToContent": "Zum Inhalt springen",
     "errorTitle": "Die Seite konnte nicht geladen werden.",
     "errorHint": "Bitte versuchen Sie es erneut. Bleibt der Fehler bestehen, wenden Sie sich an Ihre Verwaltung.",
     "retry": "Erneut versuchen",
@@ -104,11 +105,13 @@
     "photo": "Fotos anhängen (optional, JPEG oder PNG)",
     "submit": "Melden",
     "submitted": "Meldung wurde übermittelt.",
+    "submitting": "Wird gesendet",
     "back": "Zurück zur Übersicht",
     "history": "Verlauf",
     "commentField": "Nachricht",
     "commentSubmit": "Senden",
     "commentSent": "Nachricht wurde gesendet.",
+    "noComments": "Noch keine Nachrichten.",
     "number": "Nummer",
     "titleRequired": "Bitte einen Titel eingeben.",
     "descriptionRequired": "Bitte eine Beschreibung eingeben.",
@@ -146,6 +149,7 @@
     "date": "Ablesedatum",
     "submit": "Melden",
     "submitted": "Der Zählerstand wurde als Vorschlag übermittelt.",
+    "meterIdRequired": "Bitte die Zähler-ID eingeben.",
     "valueRequired": "Bitte einen Zählerstand eingeben.",
     "dateRequired": "Bitte ein Ablesedatum eingeben."
   },
@@ -168,7 +172,8 @@
       "iban": "IBAN"
     },
     "submit": "Änderung vorschlagen",
-    "submitted": "Die Änderung wurde als Vorschlag übermittelt."
+    "submitted": "Die Änderung wurde als Vorschlag übermittelt.",
+    "required": "Bitte mindestens eine Änderung angeben."
   },
   "Orders": {
     "title": "Aufträge",
@@ -230,7 +235,10 @@
     "appointmentRequired": "Bitte einen Termin auswählen.",
     "reportRequired": "Bitte den Ausführungsbericht eingeben.",
     "invoiceFieldsRequired": "Bitte Rechnungsnummer, Rechnungsdatum und Rechnungsbetrag angeben.",
-    "orderTitle": "Auftrag"
+    "orderTitle": "Auftrag",
+    "submitting": "Wird gesendet",
+    "declineConfirmAction": "Ablehnen bestätigen",
+    "declineCancel": "Abbrechen"
   },
   "Handover": {
     "title": "Übergabeprotokolle",
@@ -447,7 +455,8 @@
       "empty": "Bitte zuerst unterschreiben.",
       "none": "Noch keine Unterschrift erfasst.",
       "noName": "Ohne Namen",
-      "confirmDelete": "Unterschrift wirklich löschen?"
+      "confirmDelete": "Unterschrift wirklich löschen?",
+      "pointerHint": "Bitte unterschreiben Sie im Feld mit Finger, Stift oder Maus. Die Unterschrift ist nur per Zeigereingabe möglich, eine Eingabe über die Tastatur wird nicht unterstützt."
     },
     "hints": {
       "title": "Hinweise (kein Abschlusshindernis):"
@@ -456,6 +465,7 @@
       "preview": "PDF-Vorschau (Entwurf)",
       "stored": "PDF anzeigen"
     },
+    "tabsLabel": "Protokollbereiche",
     "tabs": {
       "object": "Objekt",
       "participants": "Beteiligte",
@@ -657,7 +667,8 @@
       "cancel": "Abbrechen",
       "statementSaved": "Die Stellungnahme wurde gespeichert."
     },
-    "costTableCaption": "Abrechnungspositionen des Prüfauftrags"
+    "costTableCaption": "Abrechnungspositionen des Prüfauftrags",
+    "loadFailed": "Der Prüfauftrag konnte nicht geladen werden (Status {status})."
   },
   "Forms": {
     "title": "Formulare",
@@ -691,5 +702,31 @@
     "iosHint": "In Safari über Teilen und Zum Home-Bildschirm hinzufügen. Es werden keine Daten auf dem Gerät gespeichert.",
     "install": "Installieren",
     "dismiss": "Später"
+  },
+  "ListFilter": {
+    "searchLabel": "Suche",
+    "searchPlaceholder": "Suchbegriff eingeben",
+    "statusFilterLabel": "Nach Status filtern",
+    "statusAll": "Alle",
+    "noResults": "Keine Treffer für die aktuelle Auswahl."
+  },
+  "DocumentDetail": {
+    "show": "Details anzeigen",
+    "hide": "Details ausblenden",
+    "loading": "Details werden geladen …",
+    "loadedTitle": "Details",
+    "category": "Kategorie",
+    "filename": "Dateiname",
+    "created": "Bereitgestellt am"
+  },
+  "Dashboard": {
+    "heading": "Aktuelle Kennzahlen",
+    "openTickets": "Offene Meldungen",
+    "openProposals": "Offene Terminvorschläge",
+    "openBalance": "Offene Posten",
+    "documents": "Dokumente",
+    "ordersOpen": "Offene Aufträge",
+    "ordersInProgress": "Aufträge in Ausführung",
+    "boardEngagements": "Prüfaufträge"
   }
 }

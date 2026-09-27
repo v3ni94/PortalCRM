@@ -14,6 +14,8 @@ const ALLOWED: { method: string; pattern: RegExp }[] = [
   { method: "GET", pattern: /^portal\/me$/ },
   // M21/M22 Portal Mieter, Eigentümer und Dienstleister.
   { method: "GET", pattern: /^portal\/documents$/ },
+  // Metadata of one document; the API records the read receipt "opened" (11.3, D34).
+  { method: "GET", pattern: new RegExp(`^portal/documents/${ID}$`) },
   { method: "POST", pattern: /^portal\/uploads$/ },
   { method: "GET", pattern: /^portal\/tickets$/ },
   { method: "POST", pattern: /^portal\/tickets$/ },
